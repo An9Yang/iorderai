@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Specific Design System Colors */
+  --color-header-bg: var(--header-background);
+  --color-fill-secondary: var(--fill-secondary);
+  --color-fill-tertiary: var(--fill-tertiary);
+  --color-ink-primary: var(--ink-primary);
+  --color-ink-secondary: var(--ink-secondary);
+  --color-ink-tertiary: var(--ink-tertiary);
+
+  --radius-xl: 2rem;
+  /* 32px */
+  --radius-lg: 1rem;
+  /* 16px */
+  --radius-md: 0.75rem;
+  /* 12px */
+  --radius-sm: 0.5rem;
+  /* 8px */
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+
+  /* Animations */
+  --animate-chroma: chroma 3s ease infinite;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes chroma {
+    0% {
+      background-position: 100% 0;
+    }
+
+    50% {
+      background-position: 50% 0;
+    }
+
+    100% {
+      background-position: 0 0;
+    }
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+
+    100% {
+      transform: translateY(0px);
+    }
+  }
+}
+
+:root {
+  /* Dia Design System - Kinetic Paper & Glass */
+
+  /* Base Palette */
+  --background: #F8F8F8;
+  /* Warm, paper-like off-white */
+  --foreground: rgba(0, 0, 0, 0.85);
+  /* Ink Primary */
+
+  --primary: #000000;
+  /* Pure Black for buttons */
+  --primary-foreground: #FFFFFF;
+
+  --secondary: rgba(0, 0, 0, 0.08);
+  /* Fill Secondary */
+  --secondary-foreground: rgba(0, 0, 0, 0.85);
+
+  --muted: rgba(0, 0, 0, 0.04);
+  /* Fill Tertiary */
+  --muted-foreground: rgba(0, 0, 0, 0.45);
+  /* Ink Tertiary */
+
+  --accent: rgba(0, 0, 0, 0.04);
+  --accent-foreground: #000000;
+
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+
+  --border: rgba(0, 0, 0, 0.06);
+  --input: rgba(0, 0, 0, 0.06);
+  --ring: rgba(0, 0, 0, 0.1);
+
+  --radius: 1.6rem;
+  /* Standard rounded-16 */
+
+  /* Specific Token Mappings */
+  --header-background: rgba(235, 235, 235, 0.7);
+  /* #EBEBEBB3 */
+  --fill-secondary: rgba(0, 0, 0, 0.08);
+  --fill-tertiary: rgba(0, 0, 0, 0.04);
+
+  --ink-primary: rgba(0, 0, 0, 0.85);
+  --ink-secondary: rgba(0, 0, 0, 0.60);
+  --ink-tertiary: rgba(0, 0, 0, 0.45);
+
+  /* Chroma Gradients */
+  --gradient-creamsicle: linear-gradient(135deg, #FFF1AC 0%, #FF6F3C 100%);
+  --gradient-grapefruit: linear-gradient(135deg, #FFADA0 0%, #96D0FF 100%);
+  --gradient-cotton-candy: linear-gradient(135deg, #96D0FF 0%, #FFC1FD 100%);
+  --gradient-sunshine: linear-gradient(135deg, #5092C7 0%, #FFB005 100%);
+  --gradient-student: linear-gradient(90deg, #FD02F5, #FA3D1D, #FFB005, #E1E1FE, #0358F7, #340B05);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scaling Base */
+html {
+  /* Default 16px root */
+  scroll-behavior: smooth;
+}
+
+body {
+  /* Standard body text */
+  font-size: 1rem;
+  /* 16px */
+  line-height: 1.6;
+}
+
+/* Utility Classes for Design System */
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
+  /* Ambient Glow */
+}
+
+.glass-nav {
+  background: var(--header-background);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.text-chroma {
+  background-image: var(--gradient-student);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: chroma 4s linear infinite;
+}
+
+.shadow-ambient {
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
+}
+
+/* Scrollbar hiding for clean look */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
