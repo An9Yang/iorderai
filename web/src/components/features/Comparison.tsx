@@ -52,30 +52,34 @@ export function Comparison() {
                         </ul>
                     </motion.div>
 
-                    {/* AI Card */}
+                    {/* AI Card - Wrapper for floating badge */}
                     <motion.div
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.4 }}
-                        className="glass-panel p-8 rounded-2xl bg-white/80 border border-white relative shadow-xl scale-105 z-10 overflow-hidden"
+                        className="relative scale-105 z-10 pt-3"
                     >
-                        {/* Chroma Glow */}
-                        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-student w-full" />
-
-                        <div className="absolute -top-3 right-4 bg-black text-white px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg flex items-center gap-1.5 z-20">
-                            <Zap className="w-3 h-3 fill-current" /> Recommended
+                        {/* Floating Recommended Badge */}
+                        <div className="absolute -top-0 right-6 bg-black text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-xl flex items-center gap-2 z-30">
+                            <Zap className="w-3.5 h-3.5 fill-current" /> Recommended
                         </div>
 
-                        <h3 className="text-xl font-bold mb-1 text-ink-primary">iOrderAI Voice AI</h3>
-                        <div className="text-3xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-pink-500">$1,200 <span className="text-sm font-normal text-ink-secondary uppercase tracking-wider text-black">/ month</span></div>
+                        {/* Card Content */}
+                        <div className="glass-panel p-8 rounded-2xl bg-white/80 border border-white relative shadow-xl overflow-hidden">
+                            {/* Chroma Glow */}
+                            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-400 via-pink-500 to-purple-500 w-full" />
 
-                        <ul className="space-y-4 relative z-10">
-                            <ListItem type="positive" text="Availability: 24/7/365" icon={<Clock className="w-4 h-4" />} />
-                            <ListItem type="positive" text="Training: Instant Download" icon={<ShieldCheck className="w-4 h-4" />} />
-                            <ListItem type="positive" text="Memory: Perfect Upselling" icon={<Zap className="w-4 h-4" />} />
-                            <ListItem type="positive" text="Cost: Fixed & Lower" icon={<Wallet className="w-4 h-4" />} />
-                        </ul>
+                            <h3 className="text-xl font-bold mb-1 text-ink-primary mt-2">iOrderAI Voice AI</h3>
+                            <div className="text-3xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-pink-500">$1,200 <span className="text-sm font-normal text-ink-secondary uppercase tracking-wider text-black">/ month</span></div>
+
+                            <ul className="space-y-4 relative z-10">
+                                <ListItem type="positive" text="Availability: 24/7/365" icon={<Clock className="w-4 h-4" />} />
+                                <ListItem type="positive" text="Training: Instant Download" icon={<ShieldCheck className="w-4 h-4" />} />
+                                <ListItem type="positive" text="Memory: Perfect Upselling" icon={<Zap className="w-4 h-4" />} />
+                                <ListItem type="positive" text="Cost: Fixed & Lower" icon={<Wallet className="w-4 h-4" />} />
+                            </ul>
+                        </div>
                     </motion.div>
                 </div>
             </div>

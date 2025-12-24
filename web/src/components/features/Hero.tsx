@@ -67,17 +67,18 @@ export function Hero() {
                 </motion.div>
 
                 {/* Right Visual (Glass Cards Flow) */}
-                <div className="relative z-10 w-full lg:h-[450px] flex flex-col justify-center perspective-1000">
+                <div className="relative z-10 w-full lg:h-[520px] flex flex-col justify-center perspective-1000">
 
-                    {/* Connecting Lines (Dotted) */}
-                    <div className="absolute inset-0 pointer-events-none hidden md:block z-0">
-                        <svg className="absolute top-1/2 left-0 w-full h-20 -translate-y-1/2 overflow-visible">
-                            <path d="M100,40 C 250,40 250,40 400,40" fill="none" stroke="rgba(0,0,0,0.1)" strokeWidth="2" strokeDasharray="8 8" />
-                            <path d="M400,40 C 550,40 550,40 700,40" fill="none" stroke="rgba(0,0,0,0.1)" strokeWidth="2" strokeDasharray="8 8" />
-                        </svg>
+                    {/* Connecting Lines (Dotted) - Hidden on smaller screens, positioned relative to content */}
+                    <div className="absolute inset-0 pointer-events-none hidden lg:flex items-center justify-center z-0">
+                        <div className="w-full max-w-[720px] flex items-center justify-between px-[100px]">
+                            <div className="flex-1 border-t-2 border-dashed border-black/10" />
+                            <div className="w-[160px]" />
+                            <div className="flex-1 border-t-2 border-dashed border-black/10" />
+                        </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center relative z-10">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-8 items-center relative z-10">
 
                         {/* Card 1: Customer Phone */}
                         <motion.div
@@ -87,32 +88,32 @@ export function Hero() {
                             className="flex flex-col items-center"
                         >
                             <div className="text-xs font-bold text-ink-tertiary mb-5 uppercase tracking-widest text-center">1. Customer Calls</div>
-                            <div className="glass-panel p-2 rounded-[1.75rem] relative w-[160px]">
-                                <div className="h-[230px] bg-white rounded-[1.5rem] flex flex-col items-center pt-6 relative overflow-hidden shadow-inner">
-                                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-100 to-pink-100 flex items-center justify-center text-orange-600 font-bold mb-2 text-base">TW</div>
-                                    <div className="text-ink-primary text-sm font-semibold">Tasty Wok</div>
-                                    <div className="text-ink-tertiary text-xs mt-0.5 font-mono">
+                            <div className="glass-panel p-2.5 rounded-[2rem] relative w-[180px]">
+                                <div className="h-[280px] bg-white rounded-[1.75rem] flex flex-col items-center pt-8 relative overflow-hidden shadow-inner">
+                                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-orange-100 to-pink-100 flex items-center justify-center text-orange-600 font-bold mb-3 text-lg">TW</div>
+                                    <div className="text-ink-primary text-base font-semibold">Tasty Wok</div>
+                                    <div className="text-ink-tertiary text-sm mt-1 font-mono">
                                         00:{time.toString().padStart(2, '0')}
                                     </div>
 
                                     {/* Audio Waves - Colorful */}
-                                    <div className="mt-8 flex gap-1 justify-center h-6 items-end opacity-80">
+                                    <div className="mt-6 flex gap-1.5 justify-center h-8 items-end opacity-80">
                                         {[1, 3, 2, 4, 3].map((h, i) => (
                                             <motion.div
                                                 key={i}
-                                                animate={{ height: [4, h * 5, 4] }}
+                                                animate={{ height: [5, h * 6, 5] }}
                                                 transition={{ duration: 1.2, repeat: Infinity, delay: i * 0.1 }}
-                                                className="w-1.5 bg-gradient-to-t from-orange-400 to-pink-500 rounded-full"
+                                                className="w-2 bg-gradient-to-t from-orange-400 to-pink-500 rounded-full"
                                             />
                                         ))}
                                     </div>
 
-                                    <div className="absolute bottom-5 w-full flex justify-center gap-3 px-4">
-                                        <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-400">
-                                            <Volume2 className="w-5 h-5" />
+                                    <div className="absolute bottom-6 w-full flex justify-center gap-4 px-4">
+                                        <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-400">
+                                            <Volume2 className="w-6 h-6" />
                                         </div>
-                                        <div className="w-10 h-10 rounded-full bg-red-500 flex items-center justify-center text-white shadow-lg shadow-red-500/30">
-                                            <PhoneOff className="w-5 h-5" />
+                                        <div className="w-12 h-12 rounded-full bg-red-500 flex items-center justify-center text-white shadow-lg shadow-red-500/30">
+                                            <PhoneOff className="w-6 h-6" />
                                         </div>
                                     </div>
                                 </div>
@@ -128,28 +129,28 @@ export function Hero() {
                         >
                             <div className="text-xs font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 mb-5 uppercase tracking-widest text-center">2. AI Processes</div>
 
-                            <div className="relative w-28 h-28 flex items-center justify-center">
+                            <div className="relative w-36 h-36 flex items-center justify-center">
                                 {/* Glowing backdrop */}
-                                <div className="absolute inset-0 bg-gradient-to-tr from-purple-400 to-blue-400 rounded-full blur-[30px] opacity-30 animate-pulse" />
+                                <div className="absolute inset-0 bg-gradient-to-tr from-purple-400 to-blue-400 rounded-full blur-[40px] opacity-30 animate-pulse" />
 
                                 {/* Glass Orb */}
                                 <div className="absolute inset-0 bg-white/40 backdrop-blur-xl border border-white/60 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.05)] flex flex-col items-center justify-center z-10">
-                                    <Bot className="w-9 h-9 mb-1 text-slate-800" strokeWidth={1.5} />
-                                    <span className="text-[10px] font-bold tracking-wider text-slate-600">CORE AI</span>
+                                    <Bot className="w-11 h-11 mb-1.5 text-slate-800" strokeWidth={1.5} />
+                                    <span className="text-[11px] font-bold tracking-wider text-slate-600">CORE AI</span>
                                 </div>
 
                                 {/* Orbiting rings */}
-                                <div className="absolute inset-[-8px] border border-white/40 rounded-full opacity-60" />
+                                <div className="absolute inset-[-10px] border border-white/40 rounded-full opacity-60" />
                                 <motion.div
                                     animate={{ rotate: 360 }}
                                     transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                                    className="absolute inset-[-16px] rounded-full border border-dashed border-blue-300/50"
+                                    className="absolute inset-[-20px] rounded-full border border-dashed border-blue-300/50"
                                 />
                             </div>
 
-                            <div className="mt-5 bg-white/80 backdrop-blur-sm border border-white/50 shadow-sm px-4 py-2 rounded-full flex items-center gap-2">
-                                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                                <span className="text-xs text-ink-secondary font-medium">Transcribing...</span>
+                            <div className="mt-6 bg-white/80 backdrop-blur-sm border border-white/50 shadow-sm px-5 py-2.5 rounded-full flex items-center gap-2.5">
+                                <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse" />
+                                <span className="text-sm text-ink-secondary font-medium">Transcribing...</span>
                             </div>
                         </motion.div>
 
@@ -161,12 +162,12 @@ export function Hero() {
                             className="flex flex-col items-center"
                         >
                             <div className="text-xs font-bold text-ink-tertiary mb-5 uppercase tracking-widest text-center">3. Sent to POS</div>
-                            <div className="w-[185px] glass-panel rounded-[1.5rem] p-2.5 relative group">
-                                <div className="bg-white rounded-[1.25rem] p-4 min-h-[175px] relative border border-secondary shadow-sm">
-                                    <div className="flex justify-between border-b border-dashed border-gray-200 pb-2.5 mb-2.5">
-                                        <span className="text-[10px] font-bold text-gray-400 tracking-wider">TICKET #1402</span>
-                                        <div className="flex items-center gap-1 text-[10px] text-green-600 font-bold bg-green-50 px-2 py-0.5 rounded-full">
-                                            <Server className="w-2.5 h-2.5" />
+                            <div className="w-[200px] glass-panel rounded-[1.75rem] p-3 relative group">
+                                <div className="bg-white rounded-[1.5rem] p-5 min-h-[200px] relative border border-secondary shadow-sm">
+                                    <div className="flex justify-between border-b border-dashed border-gray-200 pb-3 mb-3">
+                                        <span className="text-[11px] font-bold text-gray-400 tracking-wider">TICKET #1402</span>
+                                        <div className="flex items-center gap-1.5 text-[11px] text-green-600 font-bold bg-green-50 px-2.5 py-1 rounded-full">
+                                            <Server className="w-3 h-3" />
                                             <span>POS</span>
                                         </div>
                                     </div>
@@ -175,18 +176,18 @@ export function Hero() {
                                         initial={{ opacity: 0, x: 10 }}
                                         animate={{ opacity: 1, x: 0 }}
                                         transition={{ delay: 1.5, repeat: Infinity, repeatDelay: 5 }}
-                                        className="mb-4"
+                                        className="mb-5"
                                     >
-                                        <div className="text-sm font-bold text-gray-900">General Tso Chkn</div>
-                                        <div className="text-xs text-gray-500 flex justify-between mt-1">
+                                        <div className="text-base font-bold text-gray-900">General Tso Chkn</div>
+                                        <div className="text-sm text-gray-500 flex justify-between mt-1.5">
                                             <span>Regular • Spicy</span>
                                             <span className="font-mono">$14.95</span>
                                         </div>
                                     </motion.div>
 
-                                    <div className="absolute bottom-4 left-4 right-4 pt-2.5 border-t border-gray-100 flex justify-between items-end">
-                                        <span className="text-[10px] font-bold text-gray-400 uppercase">Total</span>
-                                        <span className="text-base font-bold text-black">$14.95</span>
+                                    <div className="absolute bottom-5 left-5 right-5 pt-3 border-t border-gray-100 flex justify-between items-end">
+                                        <span className="text-[11px] font-bold text-gray-400 uppercase">Total</span>
+                                        <span className="text-lg font-bold text-black">$14.95</span>
                                     </div>
                                 </div>
                                 {/* Receipt Print Animation */}
@@ -194,7 +195,7 @@ export function Hero() {
                                     initial={{ scaleY: 0 }}
                                     animate={{ scaleY: 1 }}
                                     transition={{ delay: 2, duration: 0.5, repeat: Infinity, repeatDelay: 5 }}
-                                    className="absolute -bottom-4 left-5 right-5 h-5 bg-white border border-gray-100 -z-10 origin-top shadow-sm rounded-b-lg"
+                                    className="absolute -bottom-5 left-6 right-6 h-6 bg-white border border-gray-100 -z-10 origin-top shadow-sm rounded-b-lg"
                                 />
                             </div>
                         </motion.div>
