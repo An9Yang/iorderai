@@ -69,16 +69,18 @@ export function Hero() {
                 {/* Right Visual (Glass Cards Flow) */}
                 <div className="relative z-10 w-full lg:h-[520px] flex flex-col justify-center perspective-1000">
 
-                    {/* Connecting Lines (Dotted) - Hidden on smaller screens, positioned relative to content */}
-                    <div className="absolute inset-0 pointer-events-none hidden lg:flex items-center justify-center z-0">
-                        <div className="w-full max-w-[720px] flex items-center justify-between px-[100px]">
-                            <div className="flex-1 border-t-2 border-dashed border-black/10" />
-                            <div className="w-[160px]" />
-                            <div className="flex-1 border-t-2 border-dashed border-black/10" />
+                    {/* Connecting Lines (Dotted) - Hidden on smaller screens, aligned with AI orb center */}
+                    <div className="absolute inset-0 pointer-events-none hidden lg:flex items-start justify-center z-0" style={{ paddingTop: '250px' }}>
+                        <div className="w-full flex items-center justify-center">
+                            {/* Left line - using background gradient for clean dots without extra dot at end */}
+                            <div className="w-[90px] h-[2px]" style={{ background: 'repeating-linear-gradient(to right, rgba(0,0,0,0.1) 0px, rgba(0,0,0,0.1) 6px, transparent 6px, transparent 12px)' }} />
+                            <div className="w-[192px]" />
+                            {/* Right line */}
+                            <div className="w-[90px] h-[2px]" style={{ background: 'repeating-linear-gradient(to left, rgba(0,0,0,0.1) 0px, rgba(0,0,0,0.1) 6px, transparent 6px, transparent 12px)' }} />
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-8 items-center relative z-10">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-16 lg:gap-24 items-center relative z-10">
 
                         {/* Card 1: Customer Phone */}
                         <motion.div
@@ -108,12 +110,12 @@ export function Hero() {
                                         ))}
                                     </div>
 
-                                    <div className="absolute bottom-6 w-full flex justify-center gap-4 px-4">
-                                        <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-400">
-                                            <Volume2 className="w-6 h-6" />
+                                    <div className="absolute bottom-6 w-full flex justify-center gap-3 px-4">
+                                        <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-400">
+                                            <Volume2 className="w-5 h-5" />
                                         </div>
-                                        <div className="w-12 h-12 rounded-full bg-red-500 flex items-center justify-center text-white shadow-lg shadow-red-500/30">
-                                            <PhoneOff className="w-6 h-6" />
+                                        <div className="w-10 h-10 rounded-full bg-red-500 flex items-center justify-center text-white shadow-lg shadow-red-500/30">
+                                            <PhoneOff className="w-5 h-5" />
                                         </div>
                                     </div>
                                 </div>
@@ -159,43 +161,54 @@ export function Hero() {
                             initial={{ x: 20, opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
                             transition={{ delay: 0.6 }}
-                            className="flex flex-col items-center"
+                            className="flex flex-col items-center ml-7"
                         >
                             <div className="text-xs font-bold text-ink-tertiary mb-5 uppercase tracking-widest text-center">3. Sent to POS</div>
-                            <div className="w-[200px] glass-panel rounded-[1.75rem] p-3 relative group">
-                                <div className="bg-white rounded-[1.5rem] p-5 min-h-[200px] relative border border-secondary shadow-sm">
-                                    <div className="flex justify-between border-b border-dashed border-gray-200 pb-3 mb-3">
-                                        <span className="text-[11px] font-bold text-gray-400 tracking-wider">TICKET #1402</span>
-                                        <div className="flex items-center gap-1.5 text-[11px] text-green-600 font-bold bg-green-50 px-2.5 py-1 rounded-full">
-                                            <Server className="w-3 h-3" />
+                            <div className="w-[220px] glass-panel rounded-[1.75rem] p-3 relative group">
+                                <div className="bg-white rounded-[1.5rem] p-5 min-h-[220px] relative border border-secondary shadow-sm">
+                                    <div className="flex justify-between border-b border-dashed border-gray-200 pb-2.5 mb-3">
+                                        <span className="text-xs font-bold text-gray-400 tracking-wider">TICKET #1402</span>
+                                        <div className="flex items-center gap-1.5 text-xs text-green-600 font-bold bg-green-50 px-2.5 py-1 rounded-full">
+                                            <Server className="w-3.5 h-3.5" />
                                             <span>POS</span>
                                         </div>
                                     </div>
 
-                                    <motion.div
-                                        initial={{ opacity: 0, x: 10 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        transition={{ delay: 1.5, repeat: Infinity, repeatDelay: 5 }}
-                                        className="mb-5"
-                                    >
-                                        <div className="text-base font-bold text-gray-900">General Tso Chkn</div>
-                                        <div className="text-sm text-gray-500 flex justify-between mt-1.5">
-                                            <span>Regular • Spicy</span>
-                                            <span className="font-mono">$14.95</span>
+                                    {/* Menu items container */}
+                                    <div className="space-y-2.5 mb-14">
+                                        {/* First item - appears at time >= 8 */}
+                                        <div
+                                            className={`transition-all duration-500 ${time >= 8 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-3'}`}
+                                        >
+                                            <div className="text-base font-bold text-gray-900">Orange Chicken</div>
+                                            <div className="text-xs text-gray-500 flex justify-between mt-1">
+                                                <span>Large • Spicy</span>
+                                                <span className="font-mono font-medium">$15.95</span>
+                                            </div>
                                         </div>
-                                    </motion.div>
 
-                                    <div className="absolute bottom-5 left-5 right-5 pt-3 border-t border-gray-100 flex justify-between items-end">
-                                        <span className="text-[11px] font-bold text-gray-400 uppercase">Total</span>
-                                        <span className="text-lg font-bold text-black">$14.95</span>
+                                        {/* Second item - appears at time >= 14 */}
+                                        <div
+                                            className={`transition-all duration-500 ${time >= 14 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-3'}`}
+                                        >
+                                            <div className="text-base font-bold text-gray-900">Fried Rice</div>
+                                            <div className="text-xs text-gray-500 flex justify-between mt-1">
+                                                <span>Regular</span>
+                                                <span className="font-mono font-medium">$8.50</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="absolute bottom-5 left-5 right-5 pt-2.5 border-t border-gray-100 flex justify-between items-end">
+                                        <span className="text-xs font-bold text-gray-400 uppercase">Total</span>
+                                        <span className="text-lg font-bold text-black">
+                                            ${time >= 14 ? '24.45' : time >= 8 ? '15.95' : '0.00'}
+                                        </span>
                                     </div>
                                 </div>
-                                {/* Receipt Print Animation */}
-                                <motion.div
-                                    initial={{ scaleY: 0 }}
-                                    animate={{ scaleY: 1 }}
-                                    transition={{ delay: 2, duration: 0.5, repeat: Infinity, repeatDelay: 5 }}
-                                    className="absolute -bottom-5 left-6 right-6 h-6 bg-white border border-gray-100 -z-10 origin-top shadow-sm rounded-b-lg"
+                                {/* Receipt Print Animation - shows after second item */}
+                                <div
+                                    className={`absolute -bottom-4 left-5 right-5 h-5 bg-white border border-gray-100 -z-10 origin-top shadow-sm rounded-b-lg transition-all duration-500 ${time >= 16 ? 'scale-y-100' : 'scale-y-0'}`}
                                 />
                             </div>
                         </motion.div>

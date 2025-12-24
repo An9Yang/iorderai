@@ -66,12 +66,18 @@ export function Comparison() {
                         </div>
 
                         {/* Card Content */}
-                        <div className="glass-panel p-8 rounded-2xl bg-white/80 border border-white relative shadow-xl overflow-hidden">
-                            {/* Chroma Glow */}
-                            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-400 via-pink-500 to-purple-500 w-full" />
-
-                            <h3 className="text-xl font-bold mb-1 text-ink-primary mt-2">iOrderAI Voice AI</h3>
-                            <div className="text-3xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-pink-500">$1,200 <span className="text-sm font-normal text-ink-secondary uppercase tracking-wider text-black">/ month</span></div>
+                        <div className="glass-panel p-8 rounded-2xl bg-white/80 border border-white relative shadow-xl">
+                            <h3 className="text-xl font-bold mb-1 text-ink-primary">iOrderAI Voice AI</h3>
+                            <div className="text-3xl font-bold mb-6">
+                                <span
+                                    className="text-transparent bg-clip-text animate-gradient-smooth"
+                                    style={{
+                                        backgroundImage: 'linear-gradient(90deg, #f97316, #ec4899, #8b5cf6, #ec4899, #f97316)',
+                                        backgroundSize: '200% 100%',
+                                    }}
+                                >$1,200</span>
+                                <span className="text-sm font-normal text-ink-secondary uppercase tracking-wider text-black"> / month</span>
+                            </div>
 
                             <ul className="space-y-4 relative z-10">
                                 <ListItem type="positive" text="Availability: 24/7/365" icon={<Clock className="w-4 h-4" />} />

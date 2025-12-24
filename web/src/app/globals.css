@@ -169,12 +169,29 @@ body {
 }
 
 .text-chroma {
-  background-image: var(--gradient-student);
-  background-size: 200% auto;
+  background-image: linear-gradient(90deg, #f97316, #ec4899, #8b5cf6, #ec4899, #f97316);
+  background-size: 200% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: chroma 4s linear infinite;
+  animation: gradient-smooth 4s ease-in-out infinite;
+}
+
+/* Smooth gradient animation - seamless loop */
+@keyframes gradient-smooth {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-smooth {
+  animation: gradient-smooth 4s ease-in-out infinite;
 }
 
 .shadow-ambient {

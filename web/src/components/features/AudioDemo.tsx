@@ -55,11 +55,11 @@ export function AudioDemo() {
     return (
         <section className="py-24 bg-background border-y border-white/50 relative">
             <div className="max-w-6xl mx-auto px-6">
-                <div className="grid lg:grid-cols-2 gap-14 items-center">
+                <div className="grid lg:grid-cols-2 gap-14 items-stretch">
 
                     {/* Left: Playlist */}
-                    <div className="space-y-8">
-                        <div>
+                    <div className="flex flex-col">
+                        <div className="mb-8">
                             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-ink-primary">
                                 Native Understanding
                             </h2>
@@ -69,7 +69,7 @@ export function AudioDemo() {
                             </p>
                         </div>
 
-                        <div className="space-y-3">
+                        <div className="space-y-3 flex-1">
                             {DEMOS.map((demo, idx) => (
                                 <button
                                     key={demo.id}
@@ -102,11 +102,11 @@ export function AudioDemo() {
                     </div>
 
                     {/* Right: Visualizer & Transcript */}
-                    <div className="relative">
+                    <div className="relative flex flex-col">
                         {/* Soft Glow behind */}
                         <div className="absolute inset-0 bg-gradient-to-tr from-blue-200 to-purple-200 blur-[60px] rounded-full opacity-40" />
 
-                        <div className="relative glass-panel bg-white/80 rounded-2xl p-7 min-h-[360px] flex flex-col shadow-xl">
+                        <div className="relative glass-panel bg-white/80 rounded-2xl p-7 flex-1 flex flex-col shadow-xl">
                             {/* Visualizer Header */}
                             <div className="flex justify-between items-center mb-5 border-b border-black/5 pb-4">
                                 <div className="flex items-center gap-2 text-xs font-bold text-ink-tertiary uppercase tracking-widest">
